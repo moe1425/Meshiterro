@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)#ユーザーの詳細ページへのパス
   end
 
+  private
   def user_params
     params.require(:user).permit(:name, :profile_image)
   end

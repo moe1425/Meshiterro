@@ -4,6 +4,7 @@ class PostImage < ApplicationRecord
   belongs_to :user
   # PostImage モデルに関連付けられるのは、1 つの User モデルです。
   # 1つのuserモデルしかないのでuserを複数形にしないこと。
+  has_many :post_comments, dependent: :destroy
 
   def get_image
     unless image.attached?
