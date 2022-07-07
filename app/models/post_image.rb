@@ -5,6 +5,11 @@ class PostImage < ApplicationRecord
   # PostImage モデルに関連付けられるのは、1 つの User モデルです。
   # 1つのuserモデルしかないのでuserを複数形にしないこと。
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 
   def get_image
     unless image.attached?

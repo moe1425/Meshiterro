@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # 1対複数の関係＝ユーザー1つに対して複数の投稿ができ、そのユーザーと投稿したものが紐づいてる。
   # :destroyは「1:Nの1側(ユーザー)が削除されたとき、N側(投稿したもの)を全て削除する」という機能。
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_one_attached :profile_image
 
