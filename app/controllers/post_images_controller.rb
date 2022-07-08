@@ -13,7 +13,7 @@ class PostImagesController < ApplicationController
       render :new
     end
   end
-
+  
   def index
     @post_images = PostImage.all
   end
